@@ -14,7 +14,7 @@ class DataCleaner:
         return dataframe
     
     def drop_columns(self,dataframe,columns):
-        return dataframe.drop(columns=[columns])
+        return dataframe.drop(columns=columns)
     
     def drop_null_columns(self,dataframe):
         null_columns=dataframe.columns[dataframe.isnull().all()]
