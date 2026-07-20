@@ -24,3 +24,14 @@ class DataAnalyzer:
     
     def get_memory_usage(self):
         return self.dataframe.memory_usage(deep=True)
+    
+    def get_total_memory_usage(self):
+        return self.dataframe.memory_usage(deep=True).sum()
+    
+    def get_correlation_matrix(self):
+        return self.dataframe.select_dtypes(include=['int','float']).corr()
+    
+    def get_value_counts(self,column):
+        if not column in self.dataframe.columns:
+            raise ValueError(f"No Column Name Found as {column}")
+        return self.dataframe[column].value_counts()
